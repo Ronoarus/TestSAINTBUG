@@ -1,0 +1,91 @@
+@import "/styles-utils/variables.scss";
+@import "/styles-utils/mixins.scss";
+
+.calendarCell {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include for-desktop-L {
+    height: 141px;
+    width: 146px;
+    padding: 12px;
+  }
+  @include for-tablet-M {
+    height: 96px;
+    width: 101px;
+
+    padding: 10px;
+  }
+  @include for-mobile-S {
+    height: 55px;
+    width: 55px;
+    align-items: center;
+
+    padding: 5px 5px 7px 5px;
+  }
+}
+
+.numberWrapper {
+  position: relative;
+  border-radius: 50%;
+
+  @include for-desktop-L {
+    width: 35px;
+    height: 35px;
+  }
+  @include for-tablet-M {
+    width: 30px;
+    height: 30px;
+  }
+  @include for-mobile-S {
+    width: 26px;
+    height: 26px;
+  }
+
+  &.today {
+    background-color: $color-cell-today;
+
+    & .numberDay {
+      color: $font-cell-today-color;
+    }
+  }
+  &.holiday .numberDay {
+    color: $font-cell-holiday-color;
+  }
+  &.past .numberDay {
+    color: $font-cell-past-color;
+  }
+}
+
+.numberDay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  color: $font-cell-primary-color;
+  font-weight: 500;
+
+  @include for-desktop-L {
+    font-size: 18px;
+  }
+  @include for-tablet-M {
+    font-size: 16px;
+  }
+  @include for-mobile-S {
+    font-size: 14px;
+  }
+}
+.events {
+  @include for-mobile-S {
+    display: flex;
+  }
+}
+.events > div:not(:first-child){
+  margin-top: 6px;
+  @include for-mobile-S {
+    margin-top: 0;
+    margin-left: 3px;
+  }
+}
