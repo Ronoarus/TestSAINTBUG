@@ -17,3 +17,12 @@
     url("./fonts/HelveticaNeueCyr-Medium.woff") format("woff"),
     url("./fonts/HelveticaNeueCyr-Medium.ttf") format("truetype");
 }
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/HelveticaNeueCyr-Bold.eot");
+  src: local(""), url("./fonts/HelveticaNeueCyr-Bold.woff2") format("woff2"),
+    url("./fonts/HelveticaNeueCyr-Bold.woff") format("woff"),
+    url("./fonts/HelveticaNeueCyr-Bold.ttf") format("truetype");
+}

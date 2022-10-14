@@ -31,3 +31,20 @@
     }
   }
 }
+
+// Взял приблеженные брекпоинты
+@mixin for-desktop-L {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-tablet-M {
+  @media (min-width: 481px) and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin for-mobile-S {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
