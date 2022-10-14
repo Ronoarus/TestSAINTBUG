@@ -9,7 +9,11 @@ export default {
   component: TextInput,
 } as Meta;
 
-const Template: Story<TextInputPropsTypes> = (args) => <TextInput {...args} />;
+const Template: Story<TextInputPropsTypes> = (args) => {
+  const [value, setValue] = React.useState('');
+
+  return <TextInput {...args} value={value} onChange={setValue} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {

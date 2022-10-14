@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './index.module.scss';
 
 interface TextInputPropsTypes {
@@ -17,7 +18,9 @@ const TextInput = ({
 }: TextInputPropsTypes) => {
   return (
     <input
-      className={styles.textInput}
+      className={cn(styles.textInput, {
+        [styles.textInputFull]: value?.length,
+      })}
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}
