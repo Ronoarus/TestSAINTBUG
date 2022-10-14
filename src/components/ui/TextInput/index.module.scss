@@ -2,10 +2,10 @@
 @import "/styles-utils/mixins.scss";
 
 .textInput {
+  @include textField;
+ 
   height: 36px;
   line-height: 36px;
-
-  @include textField;
 }
 
 .textInputFull {
