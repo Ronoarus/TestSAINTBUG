@@ -1,0 +1,24 @@
+@import "/styles-utils/variables.scss";
+
+.eventForm {
+  display: flex;
+  flex-direction: column;
+
+  width: fit-content;
+  padding: 20px;
+  border-radius: $border-radius;
+  background-color: white;
+
+  & > input {
+    margin:  15px 0;
+  }
+  & > button {
+    margin-top: 20px;
+  }
+}
+.headerText {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 20px;
+}
