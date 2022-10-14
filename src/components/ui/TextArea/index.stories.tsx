@@ -17,5 +17,5 @@ const Template: Story<TextAreaPropsTypes> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  placeholder: 'Enter value',
+  placeholder: 'Введите описание',
 };
