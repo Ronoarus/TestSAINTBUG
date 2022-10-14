@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles-utils/index.scss';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
