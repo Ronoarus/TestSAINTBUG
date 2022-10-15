@@ -4,7 +4,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './index.module.scss';
 import Event from '../Event';
-import { EventDay } from '../../../models/EventDay';
+import { EventDay } from '../../../models/EventForDay';
 
 enum DayMode {
   FUTURE = 'FUTURE',
