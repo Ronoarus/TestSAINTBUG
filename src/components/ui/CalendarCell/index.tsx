@@ -4,7 +4,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './index.module.scss';
 import Event from '../Event';
-import { EventDay } from '../../../models/EventForDay';
+import { EventForDay } from '../../../models/EventForDay';
 
 enum DayMode {
   FUTURE = 'FUTURE',
@@ -14,16 +14,16 @@ enum DayMode {
 }
 
 interface CalendarCellPropsTypes {
-  numberDay: number;
+  dayNumber: number;
   mode: DayMode;
-  events?: EventDay[];
+  events?: EventForDay[];
   eventClick?: () => void;
 }
 export type { CalendarCellPropsTypes };
 export { DayMode };
 
 const CalendarCell = (props: CalendarCellPropsTypes) => {
-  const { numberDay, mode = DayMode.FUTURE, events = [], eventClick } = props;
+  const { dayNumber, mode = DayMode.FUTURE, events = [], eventClick } = props;
 
   return (
     <div className={styles.calendarCell} onClick={eventClick}>
@@ -34,7 +34,7 @@ const CalendarCell = (props: CalendarCellPropsTypes) => {
           [styles.past]: mode === DayMode.PAST,
         })}
       >
-        <span className={styles.numberDay}>{numberDay}</span>
+        <span className={styles.dayNumber}>{dayNumber}</span>
       </div>
       <div className={styles.events}>
         {events.map((event) => (

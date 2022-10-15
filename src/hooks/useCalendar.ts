@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import { DayMode } from '../components/ui/CalendarCell';
 import dictionaryMonth from '../constants/dictionaryMonth';
 import { EventForDay } from '../models/EventForDay';
 import getCountEmptyBlock from '../utils/getCountEmptyBlock';
@@ -27,14 +28,34 @@ function useCalendar() {
     const baseCalendar = getDays(year, month);
     const countEmptyBlock = getCountEmptyBlock(baseCalendar[0].dayName);
 
+    const nowDate = new Date();
+    const currentDay = nowDate.getDate();
+    const currentMonth = nowDate.getMonth();
+    const currentYear = nowDate.getFullYear();
+
     const calendar = baseCalendar.map((value) => {
       const { dayNumber, month, year } = value;
       const key = `${dayNumber}${month}${year}`;
+
       const eventsForDay = events[key];
+
+      const isHoliday = ['sat', 'sun'].includes(value.dayName);
+      const isToday =
+        currentDay === dayNumber &&
+        currentMonth === month &&
+        currentYear === year;
+      const isPast =
+        year <= currentYear && month <= currentMonth && dayNumber < currentDay;
+
+      let mode = DayMode.FUTURE;
+      if (isPast) mode = DayMode.PAST;
+      else if (isToday) mode = DayMode.TODAY;
+      else if (isHoliday) mode = DayMode.HOLIDAY;
 
       return {
         ...value,
         events: eventsForDay,
+        mode,
       };
     });
 
@@ -50,7 +71,7 @@ function useCalendar() {
     (date: Date, title: string, description: string) => {
       const year = date.getFullYear();
       const month = date.getMonth();
-      const day = date.getDay();
+      const day = date.getDate();
 
       const key = `${day}${month}${year}`;
 

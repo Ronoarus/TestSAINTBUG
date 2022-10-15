@@ -47,19 +47,19 @@
   &.today {
     background-color: $color-cell-today;
 
-    & .numberDay {
+    & .dayNumber {
       color: $font-cell-today-color;
     }
   }
-  &.holiday .numberDay {
+  &.holiday .dayNumber {
     color: $font-cell-holiday-color;
   }
-  &.past .numberDay {
+  &.past .dayNumber {
     color: $font-cell-past-color;
   }
 }
 
-.numberDay {
+.dayNumber {
   position: absolute;
   top: 50%;
   left: 50%;

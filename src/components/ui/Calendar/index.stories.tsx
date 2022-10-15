@@ -14,24 +14,20 @@ const Template: Story<CalendarCellPropsTypes> = (args) => (
 );
 export const Default = Template.bind({});
 Default.args = {
-  dayNumber: 10,
+  numberDay: 10,
   mode: DayMode.FUTURE,
   events: [
     {
-      id: '1',
+      id: 1,
       title: 'Long name of the event in calendar',
       description: 'Long name of the event in calendar',
-      month: 9,
-      year: 2022,
-      day: 10,
+      date: new Date(),
     },
     {
-      id: '2',
+      id: 2,
       title: 'Long name of the event in calendar',
       description: 'Long name of the event in calendar',
-      month: 9,
-      year: 2022,
-      day: 10,
+      date: new Date(),
     },
   ],
 };

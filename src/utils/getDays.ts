@@ -1,14 +1,5 @@
-import { CalendarDay, DaysUnion } from '../models/CalendarDay';
-
-const dayNames: DaysUnion[] = [
-  'sun',
-  'mon',
-  'tue',
-  'wed',
-  'thur',
-  'fri',
-  'sat',
-];
+import dayNames from '../constants/dayNames';
+import { CalendarDay } from '../models/CalendarDay';
 
 /**
  * monthIndex in range(0, 11)
@@ -23,6 +14,7 @@ function getDays(year: number, monthIndex: number): CalendarDay[] {
       dayNumber: date.getDate(),
       month: monthIndex,
       year,
+      id: `${year}${monthIndex}${date.getDate()}`,
     });
     date.setDate(date.getDate() + 1);
   }
