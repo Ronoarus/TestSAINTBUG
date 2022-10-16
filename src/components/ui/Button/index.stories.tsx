@@ -12,7 +12,11 @@ export default {
 const Template: Story<ButtonPropsTypes> = (args) => {
   const { children, ...otherArgs } = args;
 
-  return <Button {...otherArgs}>{children} </Button>;
+  return (
+    <div style={{ width: '282px' }}>
+      <Button {...otherArgs}>{children} </Button>
+    </div>
+  );
 };
 
 const baseArgs = {

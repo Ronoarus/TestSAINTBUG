@@ -1,30 +1,42 @@
-$color-light-primary: #7FBFFE;
+$font-text-field-primary-color: #191919;
+$color-text-field-background: #fafafa;
+$font-text-field-plaseholder-color: #aaaaaa;
+$color-text-field-border-hover: #7fbffe;
+$color-text-field-border-focus: #2b96f1;
+$color-text-field-background-focus: #fff;
+$color-text-field-background-hover: #fff;
 
-$color-primary: #2b96f1;
-$color-primary-hover: #138aef;
-$color-primary-active: #0f85e9;
 
-$color-secondary: rgba(0, 0, 0, 0);
-$color-secondary-hover: #fafafa;
-$color-secondary-active: #f5f5f5;
-
-$font-buttom-primary-color: #fff;
+$font-button-primary-color: #fff;
+$color-button-primary-background: #2b96f1;
+$color-button-primary-background-hover: #138aef;
+$color-button-primary-background-active: #0f85e9;
 $font-buttom-secondary-color: #828282;
-
-$font-primary-color: #191919;
-$font-secondary-color: #AAAAAA;
-
-$border-radius: 6px;
-
-$color-cell-today: #4CA6FE;
-$font-cell-primary-color: #828282;
-$font-cell-today-color: #fff;
-$font-cell-holiday-color: #5CB85C;
-$font-cell-past-color:  #CCCCCC;;
+$color-button-secondary-background:rgba(0, 0, 0, 0);
+$color-button-secondary-background-hover: #fafafa;
+$color-button-secondary-background-active: #f5f5f5;
 
 
-$font-event: #FF7733;
+$color-calendar-cell-background: #fff;
+$color-calendar-cell-today: #4ca6fe;
+$font-calendar-cell-primary-color: #828282;
+$font-calendar-cell-today-color: #fff;
+$font-calendar-cell-holiday-color: #5cb85c;
+$font-calendar-cell-past-color: #cccccc;
+
+$font-event-color: #FF7733;
 $font-event-hover: #fff;
 $color-event-backgroud: rgba(242, 107, 81, 0.12);
 $color-event-backgroud-hover: #F26B51;
 
+$color-calendar-grid-background: #e8e8e8;
+$color-calendar-cell-background: #fff;
+$font-calendar-day-name-primary-color: #828282;
+$font-calendar-title-primary-color: #121212;
+
+$color-event-form-background: #fff ;
+$color-event-form-border: #E8E8E8 ;
+
+
+$color-calendar-form-background: #fff;
+$font-calendar-form-title-color: #191919;

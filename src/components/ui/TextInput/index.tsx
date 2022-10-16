@@ -11,7 +11,7 @@ interface TextInputPropsTypes {
 export type { TextInputPropsTypes };
 
 const TextInput = ({
-  value,
+  value = '',
   placeholder,
   disabled,
   onChange = () => {},

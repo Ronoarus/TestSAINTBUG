@@ -4,7 +4,6 @@ import { Meta, Story } from '@storybook/react';
 import useCalendar from '../../../hooks/useCalendar';
 import Calendar, { CalendarPropsTypes } from './index';
 
-
 export default {
   title: 'UI components/Calendar',
   component: Calendar,

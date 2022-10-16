@@ -2,29 +2,30 @@
 
 @mixin textField {
   box-sizing: border-box;
-  border-radius: $border-radius;
+  border-radius: 6px;
   line-height: 21px;
   font-size: 14px;
   font-weight: 400;
-  width: 282px;
+  min-width: 100px;
+  width: 100%;
   padding: 8px 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
-  color: $font-primary-color;
-  background-color: $color-secondary-hover;
+  color: $font-text-field-primary-color;
+  background-color: $color-text-field-background;
   &::placeholder {
-    color: $font-secondary-color;
+    color: $font-text-field-plaseholder-color;
   }
 
   &:hover {
     cursor: text;
-    border-color: $color-light-primary;
+    border-color: $color-text-field-border-hover;
   }
 
   &:focus {
     outline: none;
-    border-color: $color-primary;
-    background-color: white;
+    border-color: $color-text-field-border-focus;
+    background-color: $color-text-field-background-focus;
 
     &::placeholder {
       color: transparent;

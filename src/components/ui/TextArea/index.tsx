@@ -11,7 +11,7 @@ interface TextAreaPropsTypes {
 export type { TextAreaPropsTypes };
 
 const TextArea = ({
-  value,
+  value = '',
   placeholder,
   disabled,
   onChange = () => {},

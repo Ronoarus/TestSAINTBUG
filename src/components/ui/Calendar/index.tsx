@@ -8,7 +8,8 @@ import { LeftArrow, RightArrow } from '../../../media/icons';
 
 type CalendarType = CalendarDay & Pick<CalendarCellPropsTypes, 'mode'>;
 
-interface CalendarPropsTypes {
+interface CalendarPropsTypes
+  extends Pick<CalendarCellPropsTypes, 'eventClick'> {
   titleCalendar?: string;
   nextMonth?: () => void;
   prevMonth?: () => void;
@@ -24,8 +25,9 @@ const Calendar = (props: CalendarPropsTypes) => {
     calendar = [],
     countEmptyBlockStart = 0,
     countEmptyBlockEnd = 0,
-    nextMonth,
-    prevMonth,
+    nextMonth = () => {},
+    prevMonth = () => {},
+    eventClick = () => {},
   } = props;
 
   return (
@@ -59,6 +61,7 @@ const Calendar = (props: CalendarPropsTypes) => {
               dayNumber={dayNumber}
               events={events}
               mode={mode}
+              eventClick={eventClick}
             />
           );
         })}

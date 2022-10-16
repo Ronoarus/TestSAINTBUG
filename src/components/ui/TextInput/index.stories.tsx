@@ -12,7 +12,11 @@ export default {
 const Template: Story<TextInputPropsTypes> = (args) => {
   const [value, setValue] = React.useState('');
 
-  return <TextInput {...args} value={value} onChange={setValue} />;
+  return (
+    <div style={{ width: '282px' }}>
+      <TextInput {...args} value={value} onChange={setValue} />{' '}
+    </div>
+  );
 };
 
 export const Default = Template.bind({});

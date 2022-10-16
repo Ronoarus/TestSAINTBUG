@@ -9,10 +9,21 @@ export default {
   component: Event,
 } as Meta;
 
-const Template: Story<EventPropsTypes> = (args) => <Event {...args} />;
-
+const Template: Story<EventPropsTypes> = (args) => (
+  <div style={{ width: '282px' }}>
+    <Event {...args} />
+  </div>
+);
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Long name of the event in calendar',
+  event: {
+    id: `${Date.now()}`,
+    title: 'Example event name',
+    description: 'Description about event',
+    year: 2022,
+    month: 9,
+    day: 17,
+  },
   isPast: false,
+  onClick: console.log,
 };

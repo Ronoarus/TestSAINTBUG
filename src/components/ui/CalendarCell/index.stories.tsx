@@ -3,10 +3,14 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import CalendarCell, { CalendarCellPropsTypes, DayMode } from './index';
+import { defaultBlack } from '../../../configs/storybookBackgrounds';
 
 export default {
   title: 'UI components/CalendarCell',
   component: CalendarCell,
+  parameters: {
+    backgrounds: defaultBlack,
+  },
 } as Meta;
 
 const Template: Story<CalendarCellPropsTypes> = (args) => (

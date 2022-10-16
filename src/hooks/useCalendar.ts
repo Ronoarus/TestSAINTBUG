@@ -28,7 +28,7 @@ const mockEvents: EventState = {
     },
     {
       id: `${Date.now() + 2}`,
-      title: '2Example event name',
+      title: 'Apple',
       description: 'Description about event',
       year: 2022,
       month: 9,

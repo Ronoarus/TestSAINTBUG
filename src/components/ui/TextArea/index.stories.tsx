@@ -12,7 +12,11 @@ export default {
 const Template: Story<TextAreaPropsTypes> = (args) => {
   const [value, setValue] = React.useState('');
 
-  return <TextArea {...args} value={value} onChange={setValue} />;
+  return (
+    <div style={{ width: '282px' }}>
+      <TextArea {...args} value={value} onChange={setValue} />
+    </div>
+  );
 };
 
 export const Default = Template.bind({});

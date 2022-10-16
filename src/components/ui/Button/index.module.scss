@@ -1,7 +1,8 @@
 @import "/styles-utils/variables.scss";
 
 .button {
-  width: 282px;
+  min-width: 100px;
+  width: 100%;
   height: 36px;
   line-height: 36px;
   text-align: center;
@@ -12,7 +13,7 @@
   padding: 0;
   margin: 0;
   border: 0;
-  border-radius: $border-radius;
+  border-radius: 6px;
 
   &:hover {
     cursor: pointer;
@@ -20,15 +21,15 @@
 }
 
 .buttonPrimary {
-  color: $font-buttom-primary-color;
+  color: $font-button-primary-color;
 
-  background-color: $color-primary;
+  background-color: $color-button-primary-background;
   &:not(:disabled) {
     &:hover {
-      background-color: $color-primary-hover;
+      background-color: $color-button-primary-background-hover;
     }
     &:active {
-      background-color: $color-primary-active;
+      background-color: $color-button-primary-background-active;
     }
   }
   &:disabled {
@@ -40,13 +41,13 @@
 .buttonSecondary {
   color: $font-buttom-secondary-color;
 
-  background-color: $color-secondary;
+  background-color:  $color-button-secondary-background;
   &:not(:disabled) {
     &:hover {
-      background-color: $color-secondary-hover;
+      background-color: $color-button-secondary-background-hover;
     }
     &:active {
-      background-color: $color-secondary-active;
+      background-color: $color-button-secondary-background-active;
     }
   }
   &:disabled {

@@ -12,7 +12,11 @@ export default {
 const Template: Story<CalendarDateItemPropsTypes> = (args) => {
   const [selected, onChange] = useState<Date | null>(new Date());
 
-  return <CalendarDateItem {...args} selected={selected} onChange={onChange} />;
+  return (
+    <div style={{ width: '282px' }}>
+      <CalendarDateItem {...args} selected={selected} onChange={onChange} />
+    </div>
+  );
 };
 
 export const Default = Template.bind({});

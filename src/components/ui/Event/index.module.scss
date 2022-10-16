@@ -8,7 +8,6 @@
   border-radius: 4px;
 
   &:hover {
-    width: fit-content;
     cursor: pointer;
 
     background-color: $color-event-backgroud-hover;
@@ -17,7 +16,6 @@
     }
   }
 
-  
   @include for-desktop-L {
     height: 24px;
     padding: 0 10px 0 4px;
@@ -30,7 +28,7 @@
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: $font-event;
+    background-color: $font-event-color;
     &:hover {
       width: 10px;
     }
@@ -41,7 +39,7 @@
 }
 
 .eventText {
-  color: $font-event;
+  color: $font-event-color;
 
   white-space: nowrap;
   overflow: hidden;

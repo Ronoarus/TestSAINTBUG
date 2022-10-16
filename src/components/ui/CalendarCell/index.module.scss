@@ -2,10 +2,11 @@
 @import "/styles-utils/mixins.scss";
 
 .calendarCell {
-  background-color: white;
+  background-color: $color-calendar-cell-background;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 
   @include for-desktop-L {
     height: 141px;
@@ -45,17 +46,17 @@
   }
 
   &.today {
-    background-color: $color-cell-today;
+    background-color: $color-calendar-cell-today;
 
     & .dayNumber {
-      color: $font-cell-today-color;
+      color: $font-calendar-cell-today-color;
     }
   }
   &.holiday .dayNumber {
-    color: $font-cell-holiday-color;
+    color: $font-calendar-cell-holiday-color;
   }
   &.past .dayNumber {
-    color: $font-cell-past-color;
+    color: $font-calendar-cell-past-color;
   }
 }
 
@@ -64,7 +65,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -40%);
-  color: $font-cell-primary-color;
+  color: $font-calendar-cell-primary-color;
   font-weight: 500;
 
   @include for-desktop-L {
@@ -82,7 +83,7 @@
     display: flex;
   }
 }
-.events > div:not(:first-child){
+.events > div:not(:first-child) {
   margin-top: 6px;
   @include for-mobile-S {
     margin-top: 0;

@@ -1,0 +1,69 @@
+@import "/styles-utils/variables.scss";
+@import "/styles-utils/mixins.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  background-color: $color-calendar-form-background;
+  border-radius: 20px;
+
+  @include for-desktop-L {
+    padding: 30px;
+  }
+  @include for-tablet-M {
+    padding: 30px 20px;
+  }
+  @include for-mobile-S {
+    padding: 20px 16px;
+  }
+}
+
+.title {
+  color: $font-calendar-form-title-color;
+  font-weight: 700;
+
+  @include for-desktop-L {
+    font-size: 34px;
+    line-height: 38px;
+  }
+  @include for-tablet-M {
+    font-size: 28px;
+    line-height: 30px;
+  }
+  @include for-mobile-S {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.innerWrapper {
+  display: grid;
+
+  @include for-desktop-L {
+    grid-template-columns: repeat(2, min-content);
+    grid-column-gap: 30px;
+    padding-top: 54px;
+  }
+  @include for-tablet-M {
+    grid-template-rows: repeat(2, min-content);
+    grid-row-gap: 20px;
+
+    padding-top: 34px;
+  }
+  @include for-mobile-S {
+    grid-template-rows: repeat(2, min-content);
+
+    grid-row-gap: 30px;
+
+    padding-top: 34px;
+  }
+}
+
+.formWrapper{
+  @include for-desktop-L {
+    padding-top: 58px;
+    min-width: 322px;
+  }
+}

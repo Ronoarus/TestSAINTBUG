@@ -16,16 +16,18 @@ const Template: Story<EventFormPropsTypes> = () => {
 
   const disableBtn = !title || !description || !selected;
   return (
-    <EventForm
-      title={title}
-      setTitle={setTitle}
-      description={description}
-      setDescription={setDescription}
-      selected={selected}
-      setDate={setDate}
-      onSubmit={() => alert('Alert!')}
-      disableBtn={disableBtn}
-    />
+    <div style={{ width: '360px' }}>
+      <EventForm
+        title={title}
+        setTitle={setTitle}
+        description={description}
+        setDescription={setDescription}
+        selected={selected}
+        setDate={setDate}
+        onSubmit={() => alert('Alert!')}
+        disableBtn={disableBtn}
+      />
+    </div>
   );
 };
 
