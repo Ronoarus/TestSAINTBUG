@@ -1,12 +1,18 @@
 import React from 'react';
 import cn from 'classnames';
-import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
+import DatePicker, {
+  ReactDatePickerProps,
+  registerLocale,
+} from 'react-datepicker';
+import ru from 'date-fns/locale/ru';
 import styles from './index.module.scss';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
 interface CalendarDateItemPropsTypes extends ReactDatePickerProps {}
 export type { CalendarDateItemPropsTypes };
+
+registerLocale('ru', ru);
 
 const CalendarDateItem = (props: CalendarDateItemPropsTypes) => {
   const { selected, dateFormat = 'dd.MM.yyyy' } = props;
@@ -26,6 +32,7 @@ const CalendarDateItem = (props: CalendarDateItemPropsTypes) => {
           },
         },
       ]}
+      locale="ru"
     />
   );
 };

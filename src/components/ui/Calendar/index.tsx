@@ -3,7 +3,7 @@ import InlineSVG from 'react-inlinesvg';
 import styles from './index.module.scss';
 import { CalendarDay } from '../../../models/CalendarDay';
 import CalendarCell, { CalendarCellPropsTypes } from '../CalendarCell';
-import dayNames from '../../../constants/dayNames';
+import dayNamesRussian from '../../../constants/dayNamesRussian';
 import { LeftArrow, RightArrow } from '../../../media/icons';
 
 type CalendarType = CalendarDay & Pick<CalendarCellPropsTypes, 'mode'>;
@@ -46,7 +46,7 @@ const Calendar = (props: CalendarPropsTypes) => {
         />
       </div>
       <div className={styles.calendar}>
-        {dayNames.map((name) => (
+        {dayNamesRussian.map((name) => (
           <div key={name} className={styles.dayName}>
             {name.toUpperCase()}
           </div>
