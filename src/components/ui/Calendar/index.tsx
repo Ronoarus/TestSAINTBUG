@@ -1,8 +1,10 @@
-\import React from 'react';
+import React from 'react';
+import InlineSVG from 'react-inlinesvg';
 import styles from './index.module.scss';
 import { CalendarDay } from '../../../models/CalendarDay';
 import CalendarCell, { CalendarCellPropsTypes } from '../CalendarCell';
 import dayNames from '../../../constants/dayNames';
+import { LeftArrow, RightArrow } from '../../../media/icons';
 
 type CalendarType = CalendarDay & Pick<CalendarCellPropsTypes, 'mode'>;
 
@@ -11,7 +13,8 @@ interface CalendarPropsTypes {
   nextMonth?: () => void;
   prevMonth?: () => void;
   calendar?: CalendarType[];
-  countEmptyBlocks?: number;
+  countEmptyBlockStart?: number;
+  countEmptyBlockEnd?: number;
 }
 export type { CalendarPropsTypes };
 
@@ -19,28 +22,35 @@ const Calendar = (props: CalendarPropsTypes) => {
   const {
     titleCalendar,
     calendar = [],
-    countEmptyBlocks = 0,
+    countEmptyBlockStart = 0,
+    countEmptyBlockEnd = 0,
     nextMonth,
     prevMonth,
   } = props;
 
   return (
-    <div>
-      <div>
-        <button onClick={prevMonth} type="button">
-          -
-        </button>
-        <span>{titleCalendar}</span>
-        <button onClick={nextMonth} type="button">
-          +
-        </button>
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <InlineSVG
+          src={LeftArrow}
+          onClick={prevMonth}
+          className={styles.icon}
+        />
+        <span className={styles.titleCalendar}>{titleCalendar}</span>
+        <InlineSVG
+          src={RightArrow}
+          onClick={nextMonth}
+          className={styles.icon}
+        />
       </div>
-      <div>
+      <div className={styles.calendar}>
         {dayNames.map((name) => (
-          <div key={name}>{name.toUpperCase()} </div>
+          <div key={name} className={styles.dayName}>
+            {name.toUpperCase()}
+          </div>
         ))}
-        {Array.from(Array(countEmptyBlocks).keys()).map((index) => (
-          <div key={index} />
+        {Array.from(Array(countEmptyBlockStart).keys()).map((index) => (
+          <div key={`${index}-start`} className={styles.emptyBlock} />
         ))}
         {calendar.map(({ id, dayNumber, mode, events }) => {
           return (
@@ -52,6 +62,9 @@ const Calendar = (props: CalendarPropsTypes) => {
             />
           );
         })}
+        {Array.from(Array(countEmptyBlockEnd).keys()).map((index) => (
+          <div key={`${index}-end`} className={styles.emptyBlock} />
+        ))}
       </div>
     </div>
   );

@@ -7,10 +7,28 @@ import getDays from '../utils/getDays';
 
 type EventState = Record<string, EventForDay[]>;
 const mockEvents: EventState = {
+  '1992022': [
+    {
+      id: `${Date.now()}`,
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      description: 'Description about event',
+      year: 2022,
+      month: 9,
+      day: 17,
+    },
+  ],
   '1792022': [
     {
       id: `${Date.now()}`,
       title: 'Example event name',
+      description: 'Description about event',
+      year: 2022,
+      month: 9,
+      day: 17,
+    },
+    {
+      id: `${Date.now() + 2}`,
+      title: '2Example event name',
       description: 'Description about event',
       year: 2022,
       month: 9,
@@ -24,12 +42,12 @@ function useCalendar() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [events, setEvents] = useState(mockEvents);
 
-  const [currentCalendar, countEmptyBlock] = useMemo(() => {
+  const [currentCalendar, countEmptyBlockStart] = useMemo(() => {
     const baseCalendar = getDays(year, month);
     const countEmptyBlock = getCountEmptyBlock(baseCalendar[0].dayName);
 
     const nowDate = new Date();
-    const currentDay = nowDate.getDate();
+    const currentDayOfMonth = nowDate.getDate();
     const currentMonth = nowDate.getMonth();
     const currentYear = nowDate.getFullYear();
 
@@ -41,11 +59,12 @@ function useCalendar() {
 
       const isHoliday = ['sat', 'sun'].includes(value.dayName);
       const isToday =
-        currentDay === dayNumber &&
+        currentDayOfMonth === dayNumber &&
         currentMonth === month &&
         currentYear === year;
       const isPast =
-        year <= currentYear && month <= currentMonth && dayNumber < currentDay;
+        new Date(year, month, dayNumber).getTime() <
+        new Date(currentYear, currentMonth, currentDayOfMonth).getTime();
 
       let mode = DayMode.FUTURE;
       if (isPast) mode = DayMode.PAST;
@@ -62,6 +81,15 @@ function useCalendar() {
     return [calendar, countEmptyBlock];
   }, [month, year, events]);
 
+  const countEmptyBlockEnd = useMemo(() => {
+    const countBlocks = currentCalendar.length + countEmptyBlockStart;
+
+    if (countBlocks <= 35) return 35 - countBlocks;
+    if (countBlocks < 42) return 42 - countBlocks;
+
+    return 0;
+  }, [countEmptyBlockStart, currentCalendar.length]);
+
   const titleCalendar = useMemo(
     () => `${dictionaryMonth[month]} ${year}`,
     [month, year],
@@ -71,9 +99,9 @@ function useCalendar() {
     (date: Date, title: string, description: string) => {
       const year = date.getFullYear();
       const month = date.getMonth();
-      const day = date.getDate();
+      const dayOfMont = date.getDate();
 
-      const key = `${day}${month}${year}`;
+      const key = `${dayOfMont}${month}${year}`;
 
       const newEvent: EventForDay = {
         id: `${Date.now()}`,
@@ -81,11 +109,16 @@ function useCalendar() {
         description,
         year,
         month,
-        day,
+        day: dayOfMont,
       };
 
       setEvents((events) => {
         const cloneEvents: EventState = JSON.parse(JSON.stringify(events));
+        if (cloneEvents?.[key]?.length === 2) {
+          alert('Больше событий в день недоступно. В разработке');
+
+          return events;
+        }
         cloneEvents[key] = (cloneEvents[key] || []).concat([newEvent]);
 
         return cloneEvents;
@@ -118,7 +151,8 @@ function useCalendar() {
   return {
     titleCalendar,
     currentCalendar,
-    countEmptyBlock,
+    countEmptyBlockStart,
+    countEmptyBlockEnd,
     addNewEvents,
     nextMonth,
     prevMonth,
